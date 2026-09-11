@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一个简洁的个人介绍首页。"
+    />
+    <title>你的姓名｜个人主页</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #60708c;
+        --accent: #5b6df7;
+        --accent-soft: #e9ecff;
+        --surface: rgba(255, 255, 255, 0.88);
+        --border: rgba(108, 127, 179, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 15%, #dde5ff 0, transparent 30rem),
+          radial-gradient(circle at 88% 85%, #dff7f1 0, transparent 28rem),
+          #f7f9ff;
+      }
+
+      main {
+        width: min(100%, 680px);
+      }
+
+      .intro-card {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(40px, 9vw, 76px);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--surface);
+        box-shadow: 0 24px 70px rgba(51, 70, 124, 0.14);
+        backdrop-filter: blur(12px);
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .intro-card::before {
+        content: "";
+        position: absolute;
+        top: -72px;
+        right: -62px;
+        width: 180px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        opacity: 0.85;
+      }
+
+      .intro-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 78px rgba(51, 70, 124, 0.19);
+      }
+
+      .eyebrow {
+        position: relative;
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      h1 {
+        position: relative;
+        margin: 0;
+        font-size: clamp(2.3rem, 8vw, 4.4rem);
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+      }
+
+      .role {
+        position: relative;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-weight: 600;
+      }
+
+      .description {
+        position: relative;
+        max-width: 44ch;
+        margin: 30px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2.5vw, 1.12rem);
+        line-height: 1.9;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 16px;
+        }
+
+        .intro-card {
+          border-radius: 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .intro-card {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="intro-card" aria-labelledby="page-title">
+        <p class="eyebrow">个人主页</p>
+        <h1 id="page-title">你的姓名</h1>
+        <p class="role">你的身份</p>
+        <p class="description">
+          在这里介绍你自己。你可以写下自己的兴趣、正在做的事情，或希望与他人分享的一句话。
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
